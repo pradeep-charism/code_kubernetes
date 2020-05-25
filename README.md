@@ -40,3 +40,15 @@ spec:
       restartPolicy: OnFailure
       
 kubectl create -f hello_pod.yaml
+
+### Extract pod definition to yaml file and edit it.
+
+If you are given a pod definition file, edit that file and use it to create a new pod. If you are not given a pod definition file, you may extract the definition to a file using the below command:
+
+kubectl get pod <pod-name> -o yaml > pod-definition.yaml
+
+Then edit the file to make the necessary changes, delete and re-create the pod.
+Use the below command to edit pod properties.
+ 
+kubectl edit pod <pod-name> 
+    
