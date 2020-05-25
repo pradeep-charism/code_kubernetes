@@ -39,4 +39,26 @@ Then edit the file to make the necessary changes, delete and re-create the pod.
 Use the below command to edit pod properties.
  
 kubectl edit pod <pod-name> 
-    
+   
+## Get all replicasets, describe each replicasets, delete replicasets
+kubectl get replicaset
+
+kubectl describe replicaset
+
+kubectl delete replicaset replicaset-1 replicaset-2
+
+## Create replicaset using yaml definition file
+kubectl create -f replicaset-definition.yaml
+
+## Edit the replicaset
+kubectl edit replicaset new-replicaset-1
+
+## Scaling replicasets
+kubectl scale --replicas=3 replicaset.apps/new-replica-set        # Scale a replicaset named 'new-replica-set' to 3
+
+kubectl scale --replicas=3 -f foo.yaml                            # Scale a resource specified in "foo.yaml" to 3
+
+kubectl scale --current-replicas=2 --replicas=3 deployment/mysql  # If the deployment named mysql's current size is 2, scale mysql to 3
+
+kubectl scale --replicas=5 rc/foo rc/bar rc/baz                   # Scale multiple replication controllers
+
